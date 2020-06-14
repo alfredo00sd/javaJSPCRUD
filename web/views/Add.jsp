@@ -22,27 +22,7 @@
                             <a class="btn btn-info btn-lg" href="CustomerController?action=list">Volver</a>
                         </div>
                         <div class="card-body">
-                            <form action="CustomerController">
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="inputPhoto"><b>Foto :</b></label><br>
-                                        <img src="../assets/photos/1.jpg" class="img-thumbnail">
-                                        <input type="file" class="form-control-file" id="inputPhoto" name="inputPhoto" required>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputName"><b>Nombre(s) :</b></label>
-                                        <input type="text" class="form-control" id="inputName" name="inputName" minlength="3" maxlength="20" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputLastName"><b>Apellido(s) :</b></label>
-                                        <input type="text" class="form-control" id="inputLastName" name="inputLastName" required minlength="5" maxlength="40">
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputAge"><b>Edad :</b></label>
-                                        <input type="number" minlength="8" maxlength="150" class="form-control" id="inputAge" name="inputAge" required>
-                                    </div>
-                                </div>
-
+                            <form action="CustomerController"> <!-- method = "post" enctype = "multipart/form-data" -->
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="inputProfession"><b>Profesion :</b></label>
@@ -55,6 +35,26 @@
                                             <option>Other</option>
                                         </select>
                                     </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputName"><b>Nombre(s) :</b></label>
+                                        <input type="text" class="form-control" id="inputName" name="inputName" minlength="3" maxlength="20" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputLastName"><b>Apellido(s) :</b></label>
+                                        <input type="text" class="form-control" id="inputLastName" name="inputLastName" required minlength="5" maxlength="40">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputBirthDay"><b>Cumpleaños :</b></label>
+                                        <input type="date" class="form-control" id="inputBirthDay" name="inputBirthDay"  min="1920-01-01" max="2002-12-31" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputPhoto"><b>Foto :</b></label><br>
+                                        <img src="#" class="img-thumbnail"> <!--{pageContext.request.contextPath}/assets/photos/3.jpg -->
+                                        <input type="file" class="form-control-file" id="inputPhoto" name="inputPhoto">
+                                    </div>
 
                                     <div class="form-group col-md-7">
                                         <label for="inputAddress"><b>Direccion :</b></label>
@@ -62,13 +62,26 @@
                                     </div>
 
                                     <div class="form-group col-md-2">
-                                        <label for="inputSatsLevel"><b>Nivel de satisfaccion :</b></label>
-                                        <input type="range" class="form-control-range" id="inputSatsLevel" name="inputSatsLevel">
+                                        <label><b>Pasatiempos :</b></label>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" value="Dormir" name="checkHobbiesList" class="form-check-input" id="check">
+                                            <label class="form-check-label" for="check">Dormir</label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" value="Correr" name="checkHobbiesList" class="form-check-input" id="check1">
+                                            <label class="form-check-label" for="check1">Correr</label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" value="Comer" name="checkHobbiesList" class="form-check-input" id="check2">
+                                            <label class="form-check-label" for="check2">Comer</label>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
+
                                     <div class="col-md-3"></div>
+
                                     <div class="form-group col-md-2">
                                         <label><b>Genero :</b></label>
                                         <div class="form-check">
@@ -90,38 +103,21 @@
                                             </label>
                                         </div>
                                     </div>
+
                                     <div class="form-group col-md-2">
-                                        <label><b>Pasatiempos :</b></label>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" name="checkHobbies" class="form-check-input" id="check">
-                                            <label class="form-check-label" for="check">Dormir</label>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" class="form-check-input" id="check1">
-                                            <label class="form-check-label" for="check1">Correr</label>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" name="checkHobbies" class="form-check-input" id="check2">
-                                            <label class="form-check-label" for="check2">Comer</label>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" name="checkHobbies" class="form-check-input" id="check3">
-                                            <label class="form-check-label" for="check3">Nadar</label>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" name="checkHobbies" class="form-check-input" id="check4">
-                                            <label class="form-check-label" for="check4">Bailar</label>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <input type="checkbox" name="checkHobbies" class="form-check-input" id="check5">
-                                            <label class="form-check-label" for="check5">Cantar</label>
-                                        </div>
+                                        <label for="inputSatsLevel"><b>Nivel de satisfaccion :</b></label>
+                                        <input type="range" class="form-control-range" id="inputSatsLevel" name="inputSatsLevel">
                                     </div>
-                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-1"></div>
+
                                     <div class="form-group col-md-2">
-                                        <label for="inputColor"><b>Color :</b></label>
+                                        <label for="inputColor"><b>Color favorito:</b></label>
                                         <input type="color" class="form-control" id="inputColor" name="inputColor">
                                     </div>
+
+                                    <div class="col-md-2"></div>
+
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
@@ -134,7 +130,7 @@
                 </div>
             </div>
         </div>
-
+        <script src="${pageContext.request.contextPath}/assets/js/customJs.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

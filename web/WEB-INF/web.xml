@@ -3,6 +3,14 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
            version="4.0">
 
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            C:\AppServers\apache-tomcat-8.5.50\webapps\data
+        </param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>CustomerController</servlet-name>
         <servlet-class>Controller.CustomerController</servlet-class>

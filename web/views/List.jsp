@@ -26,59 +26,48 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="row">
                 <div class="col-md-12 col-md-offset-2">
-                    <table class="table table-dark table-responsive">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Foto</th>
-                                <th>Nombre(s)</th>
-                                <th>Apellido(s)</th>
-                                <th>Edad</th>
-                                <th>Profesion</th>
-                                <th>Genero</th>
-                                <th>Hobbies</th>
-                                <th>Direccion</th>
-                                <th>Nivel de satisfaccion</th>
-                                <th>Color favorito(s)</th>
-                                <th>Accion</th>
-                            </tr>
-                        </thead>
-                        <%
-                            CustomerDAO dao  = new CustomerDAO();
-                            List<CustomerBean> list = dao.list();
-                            Iterator<CustomerBean> iterator = list.iterator();
+                    <%
+                        CustomerDAO dao  = new CustomerDAO();
+                        List<CustomerBean> list = dao.list();
+                        Iterator<CustomerBean> iterator = list.iterator();
 
-                            CustomerBean customer;
+                        CustomerBean customer;
 
-                            while(iterator.hasNext()) {
-                                customer = iterator.next();
-                        %>
-                        <tbody>
-                            <tr>
-                                <td><%= customer.getId() %></td>
-                                <td><img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/photos/3.jpg"></td> <!-- <% //customer.getPhoto() %> -->
-                                <td><%= customer.getName() %></td>
-                                <td><%= customer.getLastName() %></td>
-                                <td><%= customer.getAge() %></td>
-                                <td><%= customer.getProfession() %></td>
-                                <td><%= customer.getGender() %></td>
-                                <td><%= customer.getHobbies() %></td>
-                                <td><%= customer.getAddress() %></td>
-                                <td><%= customer.getLevelOfSatisfaction() %></td>
-                                <td><div style="padding:5px;background-color: <%= customer.getFavoriteColor() %>;"></div> </td>
-                                <td>
-                                    <a class="btn btn-warning" href="CustomerController?action=edit&id=<%= customer.getId() %>">Editar</a>
-                                    <a class="btn btn-danger" href="CustomerController?action=delete&id=<%= customer.getId() %>">Eliminar</a>
-                                </td>
-                            </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
+                        while(iterator.hasNext()) {
+                            customer = iterator.next();
+                    %>
+                        <div class="card mb-auto">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="${pageContext.request.contextPath}/assets/photos/3.jpg" class="card-img img-thumbnail" alt="Customer photo">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Detalle de cliente #00<%= customer.getId() %></h5>
+                                        <p class="card-text"><b>Nombre(s) : </b> <%= customer.getName() %> <b>Apellido(s) :</b> <%= customer.getLastName() %> <b>Edad :</b> <%= customer.getAge() %></p>
+                                        <p class="card-text"><b>Profesion : </b> <%= customer.getProfession() %> <b>Hobbies : </b> <%= customer.getHobbies() %></p>
+                                        <p class="card-text"><b>Genero : </b><%= customer.getGender() %></p>
+                                        <p class="card-text"><b>Direccion : </b><%= customer.getAddress() %></p>
+                                        <p class="card-text"><b>Nivel de satisfaccion (0/100) : </b><%= customer.getLevelOfSatisfaction() %></p>
+                                        <p class="card-text"><b>Color favorito : </b><div style="padding:8px;background-color: <%= customer.getFavoriteColor() %>;"></div></p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago...</small></p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <a class="btn btn-warning" href="CustomerController?action=edit&id=<%= customer.getId() %>">Editar</a>
+                                        <a class="btn btn-danger" href="CustomerController?action=delete&id=<%= customer.getId() %>">Eliminar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    <% } %>
                 </div>
             </div>
         </div>
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

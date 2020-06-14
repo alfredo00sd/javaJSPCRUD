@@ -19,6 +19,24 @@ public class CustomerDAO implements CRUD {
     ResultSet rs;
     CustomerBean customerBean = new CustomerBean();
 
+    public int getLastId() {
+
+        String slq = "SELECT id+1 from customers order by id desc limit 0,1";
+        int id = 0;
+
+        try {
+            conn = conexion.getConn();
+            ps = conn.prepareStatement(slq);
+            rs = ps.executeQuery();
+
+            id = rs.next() ? id = rs.getInt("lastId") : -1;
+
+        } catch (SQLException SQLEx) {
+            SQLEx.printStackTrace();
+        }
+        return id;
+    }
+
     @Override
     public List<CustomerBean> list() {
         //List to hold customers
@@ -55,7 +73,33 @@ public class CustomerDAO implements CRUD {
 
     @Override
     public CustomerBean listById(int id) {
-        return null;
+
+        String sql = "select * from customers where id = '"+id+"'";
+
+        try {
+            conn = conexion.getConn();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while(rs.next()) {
+
+                customerBean.setId(rs.getInt("id"));
+                customerBean.setPhoto(rs.getString("foto"));
+                customerBean.setName(rs.getString("nombres"));
+                customerBean.setLastName(rs.getString("apellidos"));
+                customerBean.setAge((byte) rs.getInt("edad"));
+                customerBean.setProfession(rs.getString("profesion"));
+                customerBean.setGender(rs.getString("genero").charAt(0));
+                customerBean.setHobbies(rs.getString("hobbies"));
+                customerBean.setAddress(rs.getString("direccion"));
+                customerBean.setLevelOfSatisfaction(rs.getString("satisfaccion"));
+                customerBean.setFavoriteColor(rs.getString("color_favorito"));
+
+            }
+        }catch(SQLException ex) {
+            System.out.println(ex);
+        }
+        return customerBean;
     }
 
     @Override
@@ -79,11 +123,35 @@ public class CustomerDAO implements CRUD {
 
     @Override
     public boolean edit(CustomerBean customer) {
+        String editQuery = "UPDATE `customers` SET `foto` = '"+customer.getPhoto()+"', `nombres` = '"+customer.getName()+"', `apellidos` = '"+customer.getLastName()+"'," +
+                " `edad` = '"+customer.getAge()+"', `profesion` = '"+customer.getProfession()+"', `genero` = '"+customer.getGender()+"', `hobbies` = '"+customer.getHobbies()+"', " +
+                "`direccion` = '"+customer.getAddress()+"', `satisfaccion` = '"+customer.getLevelOfSatisfaction()+"', `color_favorito` = '"+customer.getFavoriteColor()+"' WHERE `customers`.`id` = '"+customer.getId()+"' ";
+
+        try {
+            conn = conexion.getConn();
+            ps = conn.prepareStatement(editQuery);
+            ps.executeUpdate();
+
+        } catch(SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        }
         return false;
     }
 
     @Override
     public boolean delete(int id) {
+
+        String sql = "delete from customers where id = '"+id+"' ";
+
+        try {
+            conn = conexion.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.executeUpdate();
+
+        } catch(SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        }
+
         return false;
     }
 }
