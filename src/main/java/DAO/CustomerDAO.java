@@ -51,17 +51,7 @@ public class CustomerDAO implements CRUD {
             while (rs.next()) {
                 CustomerBean customer = new CustomerBean();
 
-                customer.setId(rs.getInt("id"));
-                customer.setPhoto(rs.getString("foto"));
-                customer.setName(rs.getString("nombres"));
-                customer.setLastName(rs.getString("apellidos"));
-                customer.setAge((byte) rs.getInt("edad"));
-                customer.setProfession(rs.getString("profesion"));
-                customer.setGender(rs.getString("genero").charAt(0));
-                customer.setHobbies(rs.getString("hobbies"));
-                customer.setAddress(rs.getString("direccion"));
-                customer.setLevelOfSatisfaction(rs.getString("satisfaccion"));
-                customer.setFavoriteColor(rs.getString("color_favorito"));
+                fillObject(customer);
 
                 list.add(customer);
             }
@@ -69,6 +59,21 @@ public class CustomerDAO implements CRUD {
             SqlEx.printStackTrace();
         }
         return list;
+    }
+
+    private void fillObject(CustomerBean customer) throws SQLException {
+        customer.setId(rs.getInt("id"));
+        customer.setPhoto(rs.getString("foto"));
+        customer.setName(rs.getString("nombres"));
+        customer.setLastName(rs.getString("apellidos"));
+        customer.setBirthDay(rs.getString("birthday"));
+        customer.setAge((byte) rs.getInt("edad"));
+        customer.setProfession(rs.getString("profesion"));
+        customer.setGender(rs.getString("genero").charAt(0));
+        customer.setHobbies(rs.getString("hobbies"));
+        customer.setAddress(rs.getString("direccion"));
+        customer.setLevelOfSatisfaction(rs.getString("satisfaccion"));
+        customer.setFavoriteColor(rs.getString("color_favorito"));
     }
 
     @Override
@@ -83,21 +88,11 @@ public class CustomerDAO implements CRUD {
 
             while(rs.next()) {
 
-                customerBean.setId(rs.getInt("id"));
-                customerBean.setPhoto(rs.getString("foto"));
-                customerBean.setName(rs.getString("nombres"));
-                customerBean.setLastName(rs.getString("apellidos"));
-                customerBean.setAge((byte) rs.getInt("edad"));
-                customerBean.setProfession(rs.getString("profesion"));
-                customerBean.setGender(rs.getString("genero").charAt(0));
-                customerBean.setHobbies(rs.getString("hobbies"));
-                customerBean.setAddress(rs.getString("direccion"));
-                customerBean.setLevelOfSatisfaction(rs.getString("satisfaccion"));
-                customerBean.setFavoriteColor(rs.getString("color_favorito"));
+                fillObject(customerBean);
 
             }
         }catch(SQLException ex) {
-            System.out.println(ex);
+            ex.printStackTrace();
         }
         return customerBean;
     }
@@ -106,8 +101,8 @@ public class CustomerDAO implements CRUD {
     public boolean add(CustomerBean customer) {
 
         String insertCustomerQuery =
-                "INSERT INTO `customers` (`id`, `foto`, `nombres`, `apellidos`, `edad`, `profesion`, `genero`, `hobbies`, `direccion`, `satisfaccion`, `color_favorito`) " +
-                        "VALUES (NULL, '"+customer.getPhoto()+"', '"+customer.getName()+"', '"+customer.getLastName()+"', '"+customer.getAge()+"', '"+customer.getProfession()+"', '"+customer.getGender()+"', '"+customer.getHobbies()+"', '"+customer.getAddress()+"', '"+customer.getLevelOfSatisfaction()+"', '"+customer.getFavoriteColor()+"')";
+                "INSERT INTO `customers` (`id`, `foto`, `nombres`, `apellidos`, `birthday`, `edad`, `profesion`, `genero`, `hobbies`, `direccion`, `satisfaccion`, `color_favorito`) " +
+                        "VALUES (NULL, '"+customer.getPhoto()+"', '"+customer.getName()+"', '"+customer.getLastName()+"', '"+customer.getBirthDay()+"', '"+customer.getAge()+"', '"+customer.getProfession()+"', '"+customer.getGender()+"', '"+customer.getHobbies()+"', '"+customer.getAddress()+"', '"+customer.getLevelOfSatisfaction()+"', '"+customer.getFavoriteColor()+"')";
 
         try {
             conn = conexion.getConn();
@@ -151,7 +146,6 @@ public class CustomerDAO implements CRUD {
         } catch(SQLException sqlEx) {
             sqlEx.printStackTrace();
         }
-
         return false;
     }
 }

@@ -1,0 +1,29 @@
+body{
+    background-color: #595757;
+}
+
+.form-image{
+    width: 50px;
+}
+
+.form-container{
+    margin-top: 25px
+}
+
+/* HIDE RADIO */
+.image-radio{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 2px solid springgreen;
+}

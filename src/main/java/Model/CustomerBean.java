@@ -8,6 +8,7 @@ public class CustomerBean implements Serializable {
     private String photo;
     private String name;
     private String lastName;
+    private String birthDay;
     private byte age;
     private String profession;
     private char gender;
@@ -52,6 +53,14 @@ public class CustomerBean implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 
     public byte getAge() {

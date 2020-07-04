@@ -1,20 +1,16 @@
 <%@ page import="DAO.CustomerDAO" %>
 <%@ page import="Model.CustomerBean" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Iterator" %><%--
-  Created by IntelliJ IDEA.
-  User: 7440
-  Date: 6/12/2020
-  Time: 9:29 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 <html>
     <head>
         <title>List</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/customStyle.css">
     </head>
-    <body style="background-color: #595757">
+    <body>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-md-offset-2">
@@ -42,7 +38,7 @@
                         <div class="card mb-auto">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="${pageContext.request.contextPath}/assets/photos/3.jpg" class="card-img img-thumbnail" alt="Customer photo">
+                                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/<%= customer.getPhoto() %>.svg" alt="avatar"/>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
