@@ -8,7 +8,7 @@
     <head>
         <title>List</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/customStyle.css">
+        <link rel="stylesheet" href="../../css/customStyle.css">
     </head>
     <body>
         <div class="container-fluid">
@@ -48,7 +48,7 @@
                                         <p class="card-text"><b>Genero : </b><%= customer.getGender() %></p>
                                         <p class="card-text"><b>Direccion : </b><%= customer.getAddress() %></p>
                                         <p class="card-text"><b>Nivel de satisfaccion (0/100) : </b><%= customer.getLevelOfSatisfaction() %></p>
-                                        <p class="card-text"><b>Color favorito : </b><div style="padding:8px;background-color: <%= customer.getFavoriteColor() %>;"></div></p>
+                                        <p class="card-text"><b>Color favorito : </b><div style="padding:8px;background-color: <%= customer.getFavoriteColor() %>;"></div>
                                         <p class="card-text"><small class="text-muted">Last updated 3 mins ago...</small></p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">

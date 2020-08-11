@@ -3,7 +3,7 @@
     <head>
         <title>New customer</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/customStyle.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/customStyle.css">
     </head>
     <body>
 
@@ -109,31 +109,31 @@
                                         <label><b>Choose avatar :</b></label><br>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="1" checked>
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/1.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/1.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="2">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/2.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/2.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="3">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/3.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/3.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="4">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/4.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/4.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="5">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/5.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/5.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="6">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/6.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/6.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="7">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/7.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/7.svg" alt="avatar"/>
                                         </label>
                                     </div>
 

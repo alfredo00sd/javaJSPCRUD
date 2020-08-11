@@ -5,7 +5,7 @@
     <head>
         <title>Edit</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/customStyle.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/customStyle.css">
     </head>
     <body>
         <div class="container-fluid">
@@ -22,7 +22,7 @@
                             CustomerBean customer = dao.listById(id);
                         %>
                         <div class="card-body">
-                            <form action="CustomerController" method = "post" enctype = "multipart/form-data">
+                            <form action="CustomerController" method = "post">
                                 <div class="form-row">
                                     <input type="number" readonly value="<%= customer.getId() %>" hidden name="inpId">
 
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputBirthDay"><b>BirthDay :</b></label>
-                                        <input type="date" class="form-control" id="inputBirthDay" name="inputBirthDay"  min="1940-01-01" max="2002-12-31" required>
+                                        <input type="date" value="<%= customer.getBirthDay() %>" class="form-control" id="inputBirthDay" name="inputBirthDay"  min="1940-01-01" max="2002-12-31" required>
                                     </div>
 
                                     <div class="form-group col-md-3">
@@ -59,7 +59,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="inputAddress"><b>Address :</b></label>
-                                        <textarea class="form-control" id="inputAddress" name="inputAddress" rows="4" minlength="5"></textarea>
+                                        <textarea class="form-control" id="inputAddress" name="inputAddress" rows="4" minlength="5"><%= customer.getAddress() %></textarea>
                                     </div>
 
                                     <div class="form-group col-md-3">
@@ -116,42 +116,42 @@
                                         <label><b>Choose avatar :</b></label><br>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="1" checked>
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/1.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/1.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="2">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/2.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/2.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="3">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/3.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/3.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="4">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/4.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/4.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="5">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/5.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/5.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="6">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/6.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/6.svg" alt="avatar"/>
                                         </label>
                                         <label class="form-image">
                                             <input type="radio" class="form-control image-radio" name="avatar" value="7">
-                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/assets/icons/7.svg" alt="avatar"/>
+                                            <img class="img-thumbnail" src="${pageContext.request.contextPath}/icons/7.svg" alt="avatar"/>
                                         </label>
                                     </div>
 
                                     <div class="form-group col-md-2">
                                         <label for="inputSatsLevel"><b>Level of satisfaction :</b></label>
-                                        <input type="range" class="form-control-range" id="inputSatsLevel" name="inputSatsLevel">
+                                        <input type="range" value="<%= customer.getLevelOfSatisfaction() %>" class="form-control-range" id="inputSatsLevel" name="inputSatsLevel">
                                     </div>
 
                                     <div class="form-group col-md-2">
                                         <label for="inputColor"><b>Favorite color:</b></label>
-                                        <input type="color" class="form-control" id="inputColor" name="inputColor">
+                                        <input type="color" value="<%= customer.getFavoriteColor() %>" class="form-control" id="inputColor" name="inputColor">
                                     </div>
 
                                     <div class="form-group col-md-2">

@@ -1,4 +1,4 @@
-// window.addEventListener('load', function() {
+/ window.addEventListener('load', function() {
 //     document.querySelector('input[type="file"]').addEventListener('change', function() {
 //         if (this.files && this.files[0]) {
 //             var img = document.querySelector('img');  // $('img')[0]
